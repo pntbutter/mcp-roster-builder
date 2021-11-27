@@ -2,16 +2,17 @@
   <div class="min-h-screen  md:p-4  md:pt-14  bg-gray-900  text-white  text-opacity-90">
     <Html >
       <Head>
-        <Title>MCP Roster builder</Title>
+        <Title>MCP Battles</Title>
       </Head>
     </Html>
     
     <div class="container  mx-auto">
+      
       <NuxtPage /> 
     </div>
 
     <nav class="fixed  inset-x-0  bottom-0  md:bottom-auto  md:top-0  h-12  flex  items-center  justify-center  space-x-4">
-      <NuxtLink to="/">Characters</NuxtLink>
+      <NuxtLink to="/">Battles</NuxtLink>
       <NuxtLink to="/tactics-cards">Tactics</NuxtLink>
       <NuxtLink to="/crisis-cards">Crisis</NuxtLink>
       <NuxtLink to="/roster">Roster</NuxtLink>
