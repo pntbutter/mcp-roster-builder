@@ -6,23 +6,14 @@
       </Head>
     </Html>
     
-    <div class="container  mx-auto">
-      
-      <NuxtPage /> 
-    </div>
+    <NuxtPage /> 
 
     <nav class="fixed  inset-x-0  bottom-0  md:bottom-auto  md:top-0  h-12  flex  items-center  justify-center  space-x-4">
       <NuxtLink to="/">Battles</NuxtLink>
-      <NuxtLink to="/tactics-cards">Tactics</NuxtLink>
+      <!-- <NuxtLink to="/tactics-cards">Tactics</NuxtLink>
       <NuxtLink to="/crisis-cards">Crisis</NuxtLink>
-      <NuxtLink to="/roster">Roster</NuxtLink>
+      <NuxtLink to="/roster">Roster</NuxtLink> -->
     </nav>
 
   </div>
 </template>
-
-<style scoped>
-  .container {
-    max-width: 768px;
-  }
-</style>

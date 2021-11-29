@@ -4,14 +4,8 @@ const statCards = useStatCards()
 </script>
 
 <template>
-  <div class="card">
-    <header class="flex  items-center  pt-3  px-3  mb-4">
-      <h2 class="w-1/3  text-sm  lg:text-1xl  text-gray-500  font-weight-black  uppercase  tracking-widest">
-        Characters
-      </h2>
-
-      <input v-model="search" class="block  w-2/3  py-2  px-4  rounded  bg-gray-900  text-gray-100  lg:text-sm" type="text" placeholder="Search">
-    </header>
+  <div>
+    <input v-model="search" class="block  w-full  my-2  py-2  px-4  rounded  bg-gray-900  text-gray-100  lg:text-sm" type="text" placeholder="Search">
 
     <ul class="space-y-0.5">
       <li v-for="(card, index) in filteredList" :key="index" :class="[statCards.includes(card) ? 'opacity-20  pointer-events-none' : '' ]" class="flex  items-center  px-3  py-2  rounded-md  transition-all  hover:bg-gray-900">
@@ -28,7 +22,11 @@ const statCards = useStatCards()
         </span>
 
         <div class="flex  items-center  space-x-2">
-          <button @click="statCards.push(card)" class="  rounded-full  hover:bg-pink-900">
+          <button v-if="$attrs.player == 'you'" @click="$emit('addCharacter', card)" class="  rounded-full  hover:bg-pink-900">
+            <PlusCircleIcon class="block  h-6  w-6"/>
+          </button>
+
+          <button v-if="$attrs.player == 'opponent'" @click="$emit('addCharacter', card)" class="  rounded-full  hover:bg-pink-900">
             <PlusCircleIcon class="block  h-6  w-6"/>
           </button>
         </div>
