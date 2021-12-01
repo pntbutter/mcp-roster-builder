@@ -1,8 +1,8 @@
 <template>
   <div class="max-w-2xl  mx-auto">
-    <div class="flex  items-center  justify-center  py-8">
-      <input v-model="opponentName" type="text" class="mr-3  py-1  px-3  rounded-sm  bg-gray-800  text-gray-50" placeholder="Opponent name">
-      <button @click="newBattle" class="btn">
+    <div class="md:flex  items-center  justify-center  p-4  lg:py-8">
+      <input v-model="opponentName" type="text" class="w-full  md:w-auto  mr-3  py-1  px-3  rounded-sm  bg-gray-800  text-gray-50  text-center  md:text-left" placeholder="Opponent name">
+      <button @click="newBattle" class="btn  w-full  md:w-auto  mt-2  md:mt-0">
           New Battle
       </button>
     </div>

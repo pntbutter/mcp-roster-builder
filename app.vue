@@ -8,7 +8,7 @@
     
     <NuxtPage /> 
 
-    <nav class="fixed  inset-x-0  bottom-0  md:bottom-auto  md:top-0  h-12  flex  items-center  justify-center  space-x-4">
+    <nav class="fixed  inset-x-0  bottom-0  md:bottom-auto  md:top-0  h-12  flex  items-center  justify-center  space-x-4  bg-gray-800">
       <NuxtLink to="/">Battles</NuxtLink>
       <!-- <NuxtLink to="/tactics-cards">Tactics</NuxtLink>
       <NuxtLink to="/crisis-cards">Crisis</NuxtLink>

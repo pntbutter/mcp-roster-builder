@@ -4,9 +4,9 @@ const { data } = await useFetch('/api/stat-cards')
 
 <template>
   <div class="max-w-5xl  mx-auto">
-    <StatCards v-if="battle" v-bind="battle" class="max-w-3xl  mx-auto  mb-16" />
+    <StatCards v-if="battle" v-bind="battle" class="max-w-3xl  mx-auto  mb-6  md:mb-16  p-4" />
 
-    <div class="md:grid  md:grid-cols-2  gap-6">
+    <div class="md:grid  md:grid-cols-2  gap-6  space-y-10  md:space-y-0">
       <div class="relative  p-6  card" v-if="battle.you">
         <h3 class="absolute  left-6  -top-3  uppercase  opacity-50  font-weight-black  tracking-widest">
           You

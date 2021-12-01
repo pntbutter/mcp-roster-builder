@@ -6,8 +6,8 @@ const { data } = await useFetch('/api/stat-cards')
   <div>
     <input v-model="search" class="block  w-full  my-2  py-2  px-4  rounded  bg-gray-800  text-gray-100" type="text" placeholder="Search">
 
-    <ul class="space-y-0.5">
-      <li v-for="(card, index) in filteredCards" :key="index" class="flex  items-center  py-2  pr-2  pl-3  rounded-md  transition-all  ring-pink-900  hover:ring-1">
+    <ul class="space-y-2  md:space-y-0.5">
+      <li v-for="(card, index) in filteredCards" :key="index" class="md:flex  items-center  py-2  pr-2  pl-3  rounded-md  transition-all  ring-pink-900  hover:ring-1">
         <span class="mr-auto" :title="card.alias">
           <b class="mr-2">{{ card.threat }}</b>
           <span>
@@ -20,7 +20,7 @@ const { data } = await useFetch('/api/stat-cards')
           </span>
         </span>
 
-        <div class="flex  items-center  space-x-2">
+        <div class="flex  items-center  justify-end  space-x-2  mt-2  md:mt-0">
           <span class="text-xs  opacity-50  font-weight-bold  tracking-widest  uppercase">Add to:</span>
 
           <button @click="$attrs.you.characters.push(card)" v-if="$attrs.you" class="btn" :class="[$attrs.you.characters.includes(card) ? 'opacity-20  pointer-events-none' : '' ]">
