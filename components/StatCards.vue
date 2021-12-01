@@ -1,14 +1,13 @@
 <script setup>
 const { data } = await useFetch('/api/stat-cards')
-const statCards = useStatCards()
 </script>
 
 <template>
   <div>
-    <input v-model="search" class="block  w-full  my-2  py-2  px-4  rounded  bg-gray-900  text-gray-100  lg:text-sm" type="text" placeholder="Search">
+    <input v-model="search" class="block  w-full  my-2  py-2  px-4  rounded  bg-gray-800  text-gray-100" type="text" placeholder="Search">
 
     <ul class="space-y-0.5">
-      <li v-for="(card, index) in filteredList" :key="index" :class="[statCards.includes(card) ? 'opacity-20  pointer-events-none' : '' ]" class="flex  items-center  px-3  py-2  rounded-md  transition-all  hover:bg-gray-900">
+      <li v-for="(card, index) in filteredCards" :key="index" class="flex  items-center  py-2  pr-2  pl-3  rounded-md  transition-all  ring-pink-900  hover:ring-1">
         <span class="mr-auto" :title="card.alias">
           <b class="mr-2">{{ card.threat }}</b>
           <span>
@@ -22,12 +21,14 @@ const statCards = useStatCards()
         </span>
 
         <div class="flex  items-center  space-x-2">
-          <button v-if="$attrs.player == 'you'" @click="$emit('addCharacter', card)" class="  rounded-full  hover:bg-pink-900">
-            <PlusCircleIcon class="block  h-6  w-6"/>
+          <span class="text-xs  opacity-50  font-weight-bold  tracking-widest  uppercase">Add to:</span>
+
+          <button @click="$attrs.you.characters.push(card)" v-if="$attrs.you" class="btn" :class="[$attrs.you.characters.includes(card) ? 'opacity-20  pointer-events-none' : '' ]">
+            You
           </button>
 
-          <button v-if="$attrs.player == 'opponent'" @click="$emit('addCharacter', card)" class="  rounded-full  hover:bg-pink-900">
-            <PlusCircleIcon class="block  h-6  w-6"/>
+          <button @click="$attrs.opponent.characters.push(card)" v-if="$attrs.opponent" class="btn" :class="[$attrs.opponent.characters.includes(card) ? 'opacity-20  pointer-events-none' : '' ]">
+            {{ $attrs.opponent.name }}
           </button>
         </div>
       </li>
@@ -36,8 +37,6 @@ const statCards = useStatCards()
 </template>
 
 <script>
-import { PlusCircleIcon } from '@heroicons/vue/outline'
-
 export default {
   data() {
     return {
@@ -45,7 +44,7 @@ export default {
     }
   },
   computed: {
-    filteredList() {
+    filteredCards() {
       let cards = this.data
       let search = this.search.toLowerCase()
 
@@ -66,13 +65,6 @@ export default {
 
       return cards
     }
-  },
-  components: { PlusCircleIcon }
+  }
 }
 </script>
-
-<style scoped>
-.aff + .aff {
-  content: ', ';
-}
-</style>
