@@ -3,7 +3,7 @@ const { data } = await useFetch('/api/stat-cards')
 </script>
 
 <template>
-  <div class="max-w-5xl  mx-auto">
+  <div v-if="battle" class="max-w-5xl  mx-auto">
     <StatCards v-if="battle" v-bind="battle" class="max-w-3xl  mx-auto  mb-6  md:mb-16  p-4" />
 
     <div class="md:grid  md:grid-cols-2  gap-6  space-y-10  md:space-y-0">
@@ -12,7 +12,7 @@ const { data } = await useFetch('/api/stat-cards')
           You
         </h3>
 
-        <ul v-if="battle.you.characters.length">
+        <ul v-if="battle.you.characters.length" class="py-2">
           <li v-for="(char, index) in battle.you.characters" :key="index" class="flex  items-center">
             <b class="mr-2">{{ char.threat }}</b>
             <span>{{ char.name }}</span>
@@ -25,7 +25,7 @@ const { data } = await useFetch('/api/stat-cards')
           Empty, add some characters
         </div>
 
-        <span class="absolute  left-6  -bottom-3  font-weight-black  opacity-50  tracking-wide">
+        <span class="absolute  left-6  -bottom-3  font-weight-bold  opacity-50  tracking-wide">
           {{ battle.you.characters.length }} / 10
         </span>
       </div>
@@ -33,7 +33,7 @@ const { data } = await useFetch('/api/stat-cards')
       <div class="relative  p-6  card" v-if="battle.opponent">
         <input v-model="battle.opponent.name" type="text" class="block  bg-transparent  absolute  left-6  -top-3  uppercase  opacity-50  font-weight-black  tracking-widest" placeholder="Opponent">
         
-        <ul v-if="battle.opponent.characters.length">
+        <ul v-if="battle.opponent.characters.length" class="py-2">
           <li v-for="(char, index) in battle.opponent.characters" :key="index" class="flex  items-center">
             <b class="mr-2">{{ char.threat }}</b>
             <span>{{ char.name }}</span>
@@ -46,12 +46,19 @@ const { data } = await useFetch('/api/stat-cards')
           Empty, add some characters
         </div>
 
-        <span class="absolute  left-6  -bottom-3  font-weight-black  opacity-50  tracking-wide">
+        <span class="absolute  left-6  -bottom-3  font-weight-bold  opacity-50  tracking-wide">
           {{ battle.opponent.characters.length }} / 10
         </span>
       </div>
     </div>
 
+    <div class="pt-16  text-center">
+      <NuxtLink to="/play" class="btn">Play</NuxtLink>
+    </div>
+
+  </div>
+  <div v-else class="p-6  text-center">
+    <NuxtLink to="/">You need to select a battle first</NuxtLink>
   </div>
 </template>
 

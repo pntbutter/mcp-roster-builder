@@ -8,21 +8,30 @@
     </div>
     
     <div class="space-y-2">
-      <NuxtLink 
-      to="/roster" 
-      v-for="(battle, index) in battles" 
-      :key="battle.date" 
-      @click="activeBattle = index" 
-      class="block  py-3  px-4  rounded-md  transition-all  hover:shadow-xl  hover:bg-gray-800">
-        You vs. {{ battle.opponent.name }}
-        <small class="block  opacity-50">{{ prettyDate(battle.date) }}</small>
-      </NuxtLink>
+      <div v-for="(battle, index) in battles" :key="battle.date" class="flex  items-center  justify-between  py-3  pl-4  pr-3  rounded-md  transition-all  hover:shadow-xl  hover:ring-1  ring-pink-800" :class="{ 'bg-gray-800': activeBattle == index }">
+        <div>
+          You vs. {{ battle.opponent.name }}
+          <small class="block  opacity-50">{{ prettyDate(battle.date) }}</small>
+        </div>
+
+        <div class="flex  items-center">
+          <NuxtLink to="/roster" @click="activeBattle = index" class="btn">
+            Select
+          </NuxtLink>
+
+          <button @click="battles.splice(index, 1)" class="ml-2  p-2  text-pink-600  hover:text-pink-800">
+            <TrashIcon class="block  h-5  w-5"/>
+          </button>
+        </div>
+      </div>
     </div>
 
   </div>
 </template>
 
 <script>
+import { TrashIcon } from '@heroicons/vue/outline'
+
 export default {
   data() {
     return {
@@ -66,6 +75,7 @@ export default {
     activeBattle(val) {
       localStorage.setItem("activeBattle", val)
     }
-  }
+  },
+  components: { TrashIcon }
 }
 </script>

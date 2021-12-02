@@ -8,12 +8,17 @@
     
     <NuxtPage /> 
 
-    <nav class="fixed  inset-x-0  bottom-0  md:bottom-auto  md:top-0  h-12  flex  items-center  justify-center  space-x-4  bg-gray-800">
-      <NuxtLink to="/">Battles</NuxtLink>
-      <!-- <NuxtLink to="/tactics-cards">Tactics</NuxtLink>
-      <NuxtLink to="/crisis-cards">Crisis</NuxtLink>
-      <NuxtLink to="/roster">Roster</NuxtLink> -->
+    <nav class="fixed  inset-x-0  bottom-0  md:bottom-auto  md:top-0  h-12  flex  items-center  justify-center  bg-black  bg-opacity-20  text-sm  uppercase  font-bold  tracking-widest  antialiased">
+      <NuxtLink class="py-2  px-3  text-gray-400  hover:text-gray-200" to="/">Battles</NuxtLink>
+      <NuxtLink class="py-2  px-3  text-gray-400  hover:text-gray-200" to="/roster">Roster</NuxtLink>
+      <NuxtLink class="py-2  px-3  text-gray-400  hover:text-gray-200" to="/play">Play</NuxtLink>
     </nav>
 
   </div>
 </template>
+
+<style>
+.router-link-active {
+  color: #fff;
+}
+</style>
