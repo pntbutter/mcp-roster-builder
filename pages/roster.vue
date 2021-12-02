@@ -52,7 +52,7 @@ const { data } = await useFetch('/api/stat-cards')
       </div>
     </div>
 
-    <div class="pt-16  text-center">
+    <div class="pt-16  pb-24  text-center">
       <NuxtLink to="/play" class="btn">Play</NuxtLink>
     </div>
 
