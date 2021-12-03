@@ -1,11 +1,15 @@
 <template>
   <div class="max-w-2xl  mx-auto">
-    <div class="md:flex  items-center  justify-center  p-4  lg:py-8">
+    <h2 class="mt-4  md:mt-8  mb-4  lg:mb-6  title">Create battle</h2>
+
+    <div class="md:flex  items-center  justify-center">
       <input v-model="opponentName" type="text" class="w-full  md:w-auto  mr-3  py-1  px-3  rounded-sm  bg-gray-800  text-gray-50  text-center  md:text-left" placeholder="Opponent name">
       <button @click="newBattle" class="btn  w-full  md:w-auto  mt-2  md:mt-0">
           New Battle
       </button>
     </div>
+
+    <h2 class="mt-10  md:mt-16  mb-4  lg:mb-6  title">Select battle</h2>
     
     <div class="space-y-2">
       <div v-for="(battle, index) in battles" :key="battle.date" class="flex  items-center  justify-between  py-3  pl-4  pr-3  rounded-md  transition-all  hover:shadow-xl  hover:ring-1  ring-pink-800" :class="{ 'bg-gray-800': activeBattle == index }">
