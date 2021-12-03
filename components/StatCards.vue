@@ -28,12 +28,12 @@ const { data } = await useFetch('/api/stat-cards')
             Add to:
           </span>
 
-          <button @click="$attrs.you.characters.push(card)" v-if="$attrs.you" class="btn" :class="[$attrs.you.characters.includes(card) ? 'opacity-20  pointer-events-none' : '' ]">
+          <button @click="battle.you.characters.push(card)" v-if="battle.you" class="btn" :class="[battle.you.characters.includes(card) ? 'opacity-20  pointer-events-none' : '' ]">
             You
           </button>
 
-          <button @click="$attrs.opponent.characters.push(card)" v-if="$attrs.opponent" class="btn" :class="[$attrs.opponent.characters.includes(card) ? 'opacity-20  pointer-events-none' : '' ]">
-            {{ $attrs.opponent.name }}
+          <button @click="battle.opponent.characters.push(card)" v-if="battle.opponent" class="btn" :class="[battle.opponent.characters.includes(card) ? 'opacity-20  pointer-events-none' : '' ]">
+            {{ battle.opponent.name }}
           </button>
         </div>
       </li>
@@ -43,6 +43,7 @@ const { data } = await useFetch('/api/stat-cards')
 
 <script>
 export default {
+  props: ['battle'],
   data() {
     return {
       search: ''

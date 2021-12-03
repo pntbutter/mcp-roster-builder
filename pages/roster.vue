@@ -4,7 +4,7 @@ const { data } = await useFetch('/api/stat-cards')
 
 <template>
   <div v-if="battle" class="max-w-5xl  mx-auto">
-    <StatCards v-if="battle" v-bind="battle" class="max-w-3xl  mx-auto  mb-8  md:mb-16" />
+    <StatCards v-if="battle" :battle="battle" class="max-w-3xl  mx-auto  mb-8  md:mb-16" />
 
     <div class="md:grid  md:grid-cols-2  gap-6  space-y-10  md:space-y-0">
       <div class="relative  p-6  card" v-if="battle.you">
