@@ -5,7 +5,7 @@
         <h3 class="mb-4  title  md:text-left">You</h3>
 
         <ul v-if="battle.you.characters" class="space-y-2">
-          <li v-for="(char, index) in battle.you.characters" class="card  border-1  disable-dbl-tap-zoom" :class="stateBorderColor(char)">
+          <li v-for="(char, index) in battle.you.characters" class="card  relative  border-1  disable-dbl-tap-zoom" :class="stateBorderColor(char)">
             <PlayCharHeader :char="char" />
             
             <PlayCharFooter :char="char" />

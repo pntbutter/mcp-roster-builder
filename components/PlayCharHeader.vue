@@ -42,7 +42,12 @@
           </transition>
         </Menu>
 
-        <h4 class="text-sm  font-bold">{{ char.name }}</h4>
+        <h4 class="text-sm  font-bold">
+          {{ char.name }}
+          <div v-if="char.state.conditions.length" class="flex flex-wrap text-mini font-normal">
+            <span v-for="cond in char.state.conditions" :key="cond" class="mr-1">{{ cond }}</span>
+          </div>
+        </h4>
       </div>
 
       <div class="flex  flex-col  items-end  space-y-2">
@@ -100,6 +105,12 @@ export default {
     MenuButton,
     MenuItems,
     MenuItem
-}
+  }
 }
 </script>
+
+<style>
+.text-mini {
+  font-size: .6rem;
+}
+</style>

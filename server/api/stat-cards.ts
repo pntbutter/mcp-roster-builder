@@ -30,7 +30,7 @@ export default async (req, res) => [
     },
     "state": {
       "status": "healthy",
-      "effects": [],
+      "conditions": [],
       "power": 0,
       "damage": 0
     }
@@ -62,7 +62,7 @@ export default async (req, res) => [
     },
     "state": {
       "status": "healthy",
-      "effects": [],
+      "conditions": [],
       "power": 0,
       "damage": 0
     }
@@ -95,7 +95,7 @@ export default async (req, res) => [
     },
     "state": {
       "status": "healthy",
-      "effects": [],
+      "conditions": [],
       "power": 0,
       "damage": 0
     }
@@ -128,7 +128,7 @@ export default async (req, res) => [
     },
     "state": {
       "status": "healthy",
-      "effects": [],
+      "conditions": [],
       "power": 0,
       "damage": 0
     }
@@ -158,7 +158,7 @@ export default async (req, res) => [
     },
     "state": {
       "status": "healthy",
-      "effects": [],
+      "conditions": [],
       "power": 0,
       "damage": 0
     }
