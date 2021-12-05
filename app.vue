@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen  bg-gray-900  text-white  text-opacity-90">
+  <div class="bg-gray-900  text-white  text-opacity-90">
     <Html >
       <Head>
         <Title>MCP Battles</Title>

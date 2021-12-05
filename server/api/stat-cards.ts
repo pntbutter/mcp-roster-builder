@@ -6,6 +6,10 @@ export default async (req, res) => [
     "affiliation": [
       "Dark Dimension"
     ],
+    "avatar": {
+      "healthy": "dormammu_h.jpg",
+      "damaged": "dormammu_d.jpg"
+    },
     "stats": {
       "healthy": {
         "hp": 10,
