@@ -4,8 +4,7 @@
       <div class="flex  items-center">
         <Menu as="div" class="relative">
           <MenuButton class="relative  overflow-hidden  w-10  h-10  -ml-7  mr-3  border-2  rounded-full  bg-gray-800  focus:outline-none" :class="portraitState">
-            <img v-if="char.avatar && char.state.status != 'damaged'" :src="'/avatars/' + char.avatar.healthy" class="w-10">
-            <img v-else-if="char.avatar && char.state.status == 'damaged'" :src="'/avatars/' + char.avatar.damaged" class="w-10">
+            <img v-if="char.avatar" :src="'/avatars/' + char.avatar" class="w-10">
             <XIcon v-if="char.state.status == 'ko'" class="absolute  inset-0  text-gray-900" />
           </MenuButton>
 

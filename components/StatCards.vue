@@ -6,7 +6,7 @@ const { data } = await useFetch('/api/stat-cards')
   <div>
     <input v-model="search" class="block  w-full  my-2  py-2  px-4  rounded  bg-gray-800  text-gray-100" type="text" placeholder="Search (name, alias, affiliation, threat)">
 
-    <ul class="py-2  md:py-4  space-y-3  md:space-y-4">
+    <ul class="max-h-xs  overflow-auto  my-2  md:my-4  space-y-3  md:space-y-4">
       <li v-for="(card, index) in filteredCards" :key="index" class="flex  flex-wrap  md:items-center  rounded-md  transition-all">
         <span :title="card.alias">
           <b class="mr-2">{{ card.threat }}</b>

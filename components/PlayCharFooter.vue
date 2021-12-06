@@ -1,5 +1,5 @@
 <template>
-  <footer class="flex flex-wrap mt-5 space-x-3 md:space-x-6">
+  <footer class="flex flex-wrap justify-between mt-5">
     <div class="flex flex-wrap items-center">
       <button
         @click="decreasePower(char)"
@@ -35,7 +35,7 @@
       </button>
     </div>
 
-    <Popover>
+    <Popover class="">
       <PopoverButton class="btn-outline">
         Cond.
       </PopoverButton>

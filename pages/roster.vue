@@ -26,7 +26,7 @@ const { data } = await useFetch('/api/stat-cards')
         </div>
 
         <span class="absolute  left-6  -bottom-3  font-weight-bold  text-gray-400  tracking-wide">
-          {{ battle.you.characters.length }} / 10
+          {{ threatCount(battle.you.characters) }} <span class="ml-2">Threat</span>
         </span>
       </div>
 
@@ -47,7 +47,7 @@ const { data } = await useFetch('/api/stat-cards')
         </div>
 
         <span class="absolute  left-6  -bottom-3  font-weight-bold  text-gray-400  tracking-wide">
-          {{ battle.opponent.characters.length }} / 10
+          {{ threatCount(battle.opponent.characters) }} <span class="ml-2">Threat</span>
         </span>
       </div>
     </div>
@@ -75,7 +75,13 @@ export default {
     }
   },
   methods: {
-    
+    threatCount(chars) {
+      let count = 0
+      chars.forEach(function(char) {
+        count = count + char.threat
+      })
+      return count
+    }
   },
   mounted() {
     this.battles = JSON.parse(localStorage.getItem("battles")) || []
